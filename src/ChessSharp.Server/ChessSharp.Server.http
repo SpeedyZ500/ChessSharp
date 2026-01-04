@@ -1,0 +1,6 @@
+@ChessSharp.Server_HostAddress = http://localhost:5079
+
+GET {{ChessSharp.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
