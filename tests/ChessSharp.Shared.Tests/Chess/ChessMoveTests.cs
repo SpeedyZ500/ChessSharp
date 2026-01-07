@@ -34,5 +34,29 @@ public class ChessMoveTests
         Assert.NotEqual(original.GetHashCode(), promoteDifferent.GetHashCode());
     }
 
+    [Fact(DisplayName ="Combined Testing")]
+    public void HashSetTest() {
+        HashSet<ChessMove> set = new HashSet<ChessMove>();
+        set.Add(original);
+
+        Assert.Contains(original, set);
+        Assert.Contains(equal, set);
+        Assert.Single(set);
+        set.Add(equal);
+        Assert.Single(set);
+
+        Assert.DoesNotContain(startDifferent, set);
+        set.Add(startDifferent);
+        Assert.Equal(2, set.Count);
+
+        Assert.DoesNotContain(endDifferent, set);
+        set.Add(endDifferent);
+        Assert.Equal(3, set.Count);
+
+        Assert.DoesNotContain(promoteDifferent, set);
+        set.Add(promoteDifferent);
+        Assert.Equal(4, set.Count);
+    }
+
 
 }
