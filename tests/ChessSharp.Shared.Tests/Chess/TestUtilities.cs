@@ -7,7 +7,8 @@ using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 using ChessSharp.Shared.Chess;
 using ChessSharp.Shared.Enums;
-public class TestUtilities{
+public class TestUtilities
+{
     public static void ValidateMoves(string boardText, ChessPosition startPosition, int[,] endPositions)
     {
         var board = LoadBoard(boardText);
