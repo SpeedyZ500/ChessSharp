@@ -105,6 +105,6 @@ public class TestUtilities
     private static int MoveToInt(ChessMove move)
     {
         return 1000 * PositionToInt(move.StartPosition) + 10 * PositionToInt(move.EndPosition) + 
-        ((move.Promotion != null) ? (int) move.Promotion +1 : 0);
+        ((move.Promotion != null) ? ((int) move.Promotion) + 1 : 0);
     }
 }

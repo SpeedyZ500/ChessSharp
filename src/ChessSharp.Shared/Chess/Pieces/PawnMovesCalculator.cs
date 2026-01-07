@@ -22,8 +22,8 @@ public class PawnMovesCalculator : IChessMovesCalculator
                 enPassantRow = 4;
                 break;
             case TeamColor.WHITE:
-                direction = -1;
-                start = position.Row == 7;
+                direction = 1;
+                start = position.Row == 2;
                 enPassantRow = 5;
                 break;
             default:
@@ -80,7 +80,7 @@ public class PawnMovesCalculator : IChessMovesCalculator
     private List<ChessMove> PawnCapture(ChessBoard board, ChessPosition position, int direction, TeamColor color)
     {
         List<ChessMove> moves = new List<ChessMove>();
-        int row = position.Row;
+        int row = position.Row + direction;
         for (int i = -1; i <= 1; i += 2)
         {
             int col = position.Col + i;
