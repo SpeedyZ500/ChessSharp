@@ -2,7 +2,7 @@ namespace ChessSharp.Shared.Tests.Chess.Piece;
 using ChessSharp.Shared.Chess;
 using ChessSharp.Shared.Enums;
 
-public class BishopMovesTest
+public class BishopMovesTests
 {
     [Fact]
     public void BishopMovesUntilEdge()
