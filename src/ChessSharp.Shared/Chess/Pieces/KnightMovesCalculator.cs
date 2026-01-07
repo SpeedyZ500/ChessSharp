@@ -21,7 +21,7 @@ public class KnightMovesCalculator : IChessMovesCalculator
                 ChessPosition pos = new ChessPosition(row, col);
                 if(Math.Abs(vert) != Math.Abs(horiz) && !ChessBoard.OutOfBounds(pos))
                 {
-                    ChessPiece? checkPosition = board.GetPiece(position);
+                    ChessPiece? checkPosition = board.GetPiece(pos);
                     if (checkPosition == null || checkPosition.PieceColor != piece.PieceColor)
                     {
                         moves.Add(new ChessMove(position, pos, null));
