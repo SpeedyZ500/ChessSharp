@@ -6,7 +6,7 @@ public class PawnMovesCalculator : IChessMovesCalculator
     {
         List<ChessMove> moves = new List<ChessMove>();
         ChessPiece? pieces = board.GetPiece(position);
-        if (pieces == null)
+        if (pieces == null || pieces.Type != PieceType.PAWN)
         {
             return moves;
         }
@@ -33,7 +33,7 @@ public class PawnMovesCalculator : IChessMovesCalculator
         {
             moves.AddRange(PawnForward(board, position, direction, start));
             moves.AddRange(PawnCapture(board, position, direction, piece.PieceColor));
-            moves.AddRange();
+            moves.AddRange(EnPassant(board, position, direction, enPassantRow, piece));
         }
         return moves;
     }
@@ -117,7 +117,17 @@ public class PawnMovesCalculator : IChessMovesCalculator
                 int checkCol = col + i;
                 ChessPosition checkPosition = new ChessPosition(row, checkCol);
                 ChessPiece? checkPiece = !ChessBoard.OutOfBounds(checkPosition) ? board.GetPiece(checkPosition) : null;
-                
+                if(checkPiece != null && checkPiece.Type == piece.Type && checkPiece.PieceColor != piece.PieceColor)
+                {
+                    int checkRow = row + (direction * 2);
+                    ChessPosition prevPosition = new ChessPosition(checkRow, checkCol);
+                    ChessPosition endPosition = new ChessPosition(row + direction, checkCol);
+                    ChessMove checkMove = new ChessMove(prevPosition, checkPosition, null);
+                    if (checkMove.Equals(prevMove) && board.GetPiece(endPosition) == null)
+                    {
+                        moves.Add(new ChessMove(position, endPosition, null));
+                    }
+                }
 
             }
         }

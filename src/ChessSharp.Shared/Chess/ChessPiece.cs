@@ -22,7 +22,8 @@ public record ChessPiece(TeamColor PieceColor, PieceType Type)
                     moves.AddRange(calculator.PieceMoves(board, myPosition));
                     break;
                 case PieceType.PAWN:
-                    moves.AddRange();
+                    calculator = new PawnMovesCalculator();
+                    moves.AddRange(calculator.PieceMoves(board, myPosition));
                     break;
                 case PieceType.ROOK:
                     calculator = new RookMovesCalculator();
