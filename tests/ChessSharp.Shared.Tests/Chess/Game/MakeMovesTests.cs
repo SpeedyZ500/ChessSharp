@@ -329,7 +329,7 @@ public class MakeMovesTests
     [InlineData(PieceType.KNIGHT)]
     [InlineData(PieceType.BISHOP)]
 
-    public void promotionMoves(PieceType promotionType)  {
+    public void PromotionMoves(PieceType promotionType)  {
         
 
         game.Board = TestUtilities.LoadBoard("""
