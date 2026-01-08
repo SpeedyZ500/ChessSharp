@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../ChessSharp.Shared/ChessSharp.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
