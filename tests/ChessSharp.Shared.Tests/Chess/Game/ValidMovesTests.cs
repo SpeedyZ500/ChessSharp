@@ -37,7 +37,8 @@ public class ValidMovesTests
     }
 
     [Fact(DisplayName="Piece Partially Trapped")]
-    public void MoveIntoCheckTest() {
+    public void MoveIntoCheckTest()
+    {
 
         var game = new ChessGame();
         game.Board =TestUtilities.LoadBoard("""
@@ -58,7 +59,8 @@ public class ValidMovesTests
     }
 
     [Fact(DisplayName="Piece Completely Trapped")]
-    public void RookPinnedToKing() {
+    public void RookPinnedToKing()
+    {
 
         var game = new ChessGame();
         game.Board = TestUtilities.LoadBoard("""
@@ -78,7 +80,8 @@ public class ValidMovesTests
 
 
     [Fact(DisplayName= "Pieces Cannot Eliminate Check")]
-    public void KingInDangerTest() {
+    public void KingInDangerTest()
+    {
         var game = new ChessGame();
         game.Turn = TeamColor.BLACK;
         game.Board = TestUtilities.LoadBoard("""
@@ -115,7 +118,8 @@ public class ValidMovesTests
 
 
     [Fact(DisplayName = "King Cannot Move Into Check")]
-    public void NoPutSelfInDangerTest() {
+    public void NoPutSelfInDangerTest()
+    {
 
         var game = new ChessGame();
         game.Board = TestUtilities.LoadBoard("""
@@ -136,7 +140,8 @@ public class ValidMovesTests
     }
 
     [Fact(DisplayName = "Valid Moves Independent of Team Turn")]
-    public void ValidMovesOtherTeamTest() {
+    public void ValidMovesOtherTeamTest()
+    {
         var game = new ChessGame();
         game.Board = TestUtilities.DefaultBoard();
         game.Turn = TeamColor.BLACK;
@@ -147,7 +152,8 @@ public class ValidMovesTests
         AssertMoves(game, validMoves, position);
     }
 
-    private static void AssertMoves(ChessGame game, List<ChessMove> validMoves, ChessPosition position) {
+    private static void AssertMoves(ChessGame game, List<ChessMove> validMoves, ChessPosition position)
+    {
         var actualMoves = game.ValidMoves(position);
         TestUtilities.ValidateMoves(validMoves, actualMoves);
     }

@@ -18,7 +18,8 @@ public class MakeMovesTests
     }
 
     [Fact(DisplayName ="Make Valid King Move")]
-    public void MakeValidKingMoveTest() {
+    public void MakeValidKingMoveTest()
+    {
         game.Board = TestUtilities.LoadBoard("""
                 | | | | | | | | |
                 |p| | | | | | |k|
@@ -48,7 +49,8 @@ public class MakeMovesTests
     }
 
     [Fact(DisplayName ="Make Valid Queen Move")]
-    public void MakeValidQueenMoveTest() {
+    public void MakeValidQueenMoveTest()
+    {
         game.Board = TestUtilities.LoadBoard("""
                 | | | | | | | | |
                 | | | | | | | | |
@@ -78,7 +80,8 @@ public class MakeMovesTests
     }
 
     [Fact(DisplayName ="Make Valid Rook Move")]
-    public void MakeValidRookMoveTest() {
+    public void MakeValidRookMoveTest()
+    {
         game.Board = TestUtilities.LoadBoard("""
                 | | | | |k| | | |
                 | | | | | | | | |
@@ -109,7 +112,8 @@ public class MakeMovesTests
 
     
     [Fact(DisplayName ="Make Valid Knight Move")]
-    public void MakeValidKnightMoveTest()  {
+    public void MakeValidKnightMoveTest()
+    {
         game.Board = TestUtilities.LoadBoard("""
                 | | | | |k| | | |
                 | | | | | | | | |
@@ -140,7 +144,8 @@ public class MakeMovesTests
 
     
     [Fact(DisplayName ="Make Valid Bishop Move")]
-    public void MakeValidBishopMoveTest()  {
+    public void MakeValidBishopMoveTest()
+    {
         game.Board = TestUtilities.LoadBoard("""
                 | | | | |k| | | |
                 |p| | | | | | | |
@@ -171,7 +176,8 @@ public class MakeMovesTests
 
     
     [Fact(DisplayName ="Make Valid Pawn Move")]
-    public void MakeValidPawnMoveTest()  {
+    public void MakeValidPawnMoveTest()
+    {
         game.Board = TestUtilities.LoadBoard("""
                 | |k| | | | | | |
                 | |p| | | | | | |
@@ -202,7 +208,8 @@ public class MakeMovesTests
 
     
     [Fact(DisplayName ="Make Move Changes Team Turn")]
-    public void MakeMoveChangesTurnTest()  {
+    public void MakeMoveChangesTurnTest()
+    {
         game.MakeMove(new ChessMove(new ChessPosition(2, 5), new ChessPosition(4, 5), null));
         Assert.Equal(TeamColor.BLACK, game.Turn);
 
@@ -212,51 +219,59 @@ public class MakeMovesTests
 
     
     [Fact(DisplayName ="Invalid Make Move Too Far")]
-    public void InvalidMakeMoveTooFarTest() {
+    public void InvalidMakeMoveTooFarTest()
+    {
         Assert.Throws<InvalidMoveException>(() => game.MakeMove(new ChessMove(new ChessPosition(2, 1), new ChessPosition(5, 1), null)));
     }
 
     
     [Fact(DisplayName ="Invalid Make Move Pawn Diagonal No Capture")]
-    public void InvalidMakeMovePawnDiagonalNoCaptureTest() {
+    public void InvalidMakeMovePawnDiagonalNoCaptureTest()
+    {
         Assert.Throws<InvalidMoveException>(() => game.MakeMove(new ChessMove(new ChessPosition(2, 1), new ChessPosition(3, 2), null)));
     }
 
     
     [Fact(DisplayName ="Invalid Make Move Out Of Turn")]
-    public void InvalidMakeMoveOutOfTurnTest() {
+    public void InvalidMakeMoveOutOfTurnTest()
+    {
         Assert.Throws<InvalidMoveException>(() => game.MakeMove(new ChessMove(new ChessPosition(7, 5), new ChessPosition(6, 5), null)));
     }
 
     
     [Fact(DisplayName ="Invalid Make Move Through Piece")]
-    public void InvalidMakeMoveThroughPieceTest() {
+    public void InvalidMakeMoveThroughPieceTest()
+    {
         Assert.Throws<InvalidMoveException>(() => game.MakeMove(new ChessMove(new ChessPosition(1, 1), new ChessPosition(4, 1), null)));
     }
 
     
     [Fact(DisplayName ="Invalid Make Move No Piece")]
-    public void InvalidMakeMoveNoPieceTest() {
+    public void InvalidMakeMoveNoPieceTest()
+    {
         //starting position does not have a piece
         Assert.Throws<InvalidMoveException>(() => game.MakeMove(new ChessMove(new ChessPosition(4, 4), new ChessPosition(4, 5), null)));
     }
 
     
     [Fact(DisplayName ="Invalid Make Move Invalid Move")]
-    public void InvalidMakeMoveInvalidMoveTest() {
+    public void InvalidMakeMoveInvalidMoveTest()
+    {
         //not a move the piece can ever take
         Assert.Throws<InvalidMoveException>(() => game.MakeMove(new ChessMove(new ChessPosition(8, 7), new ChessPosition(5, 5), null)));
     }
 
     
     [Fact(DisplayName ="Invalid Make Move Take Own Piece")]
-    public void InvalidMakeMoveTakeOwnPieceTest() {
+    public void InvalidMakeMoveTakeOwnPieceTest()
+    {
         Assert.Throws<InvalidMoveException>(() => game.MakeMove(new ChessMove(new ChessPosition(1, 3), new ChessPosition(2, 4), null)));
     }
 
     
     [Fact(DisplayName ="Invalid Make Move Captured Piece")]
-    public void InvalidMakeMoveCapturedPieceTest()  {
+    public void InvalidMakeMoveCapturedPieceTest()
+    {
         game.Board = TestUtilities.LoadBoard("""
                 |r|n|b|q|k|b|n|r|
                 |p|p|p|p| |p|p|p|
@@ -274,7 +289,8 @@ public class MakeMovesTests
 
     
     [Fact(DisplayName ="Invalid Make Move Jump Enemy")]
-    public void InvalidMakeMoveJumpEnemyTest() {
+    public void InvalidMakeMoveJumpEnemyTest()
+    {
         game.Board = TestUtilities.LoadBoard("""
                 | | | | |k| | | |
                 | | | | | | | | |
@@ -290,7 +306,8 @@ public class MakeMovesTests
 
     
     [Fact(DisplayName ="Invalid Make Move In Check")]
-    public void InvalidMakeMoveInCheckTest() {
+    public void InvalidMakeMoveInCheckTest()
+    {
         game.Board = TestUtilities.LoadBoard("""
                 |r|n| |q|k|b| |r|
                 |p| |p|p|p|p|p|p|
@@ -307,7 +324,8 @@ public class MakeMovesTests
 
     
     [Fact(DisplayName ="Invalid Make Move Double Move Moved Pawn")]
-    public void InvalidMakeMoveDoubleMoveMovedPawnTest() {
+    public void InvalidMakeMoveDoubleMoveMovedPawnTest()
+    {
         game.Board = TestUtilities.LoadBoard("""
                 |r|n|b|q|k|b|n|r|
                 |p| |p|p|p|p|p|p|
@@ -329,7 +347,8 @@ public class MakeMovesTests
     [InlineData(PieceType.KNIGHT)]
     [InlineData(PieceType.BISHOP)]
 
-    public void PromotionMoves(PieceType promotionType)  {
+    public void PromotionMoves(PieceType promotionType)
+    {
         
 
         game.Board = TestUtilities.LoadBoard("""

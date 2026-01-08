@@ -7,7 +7,8 @@ using ChessSharp.Shared.Enums;
 public class FullGameTest
 {
     [Fact(DisplayName="Full Game Checkmate")]
-    public void ScholarsMateTest() {
+    public void ScholarsMateTest()
+    {
         var game = new ChessGame();
         game.MakeMove(new ChessMove(new ChessPosition(2, 5), new ChessPosition(4, 5), null));
         /*

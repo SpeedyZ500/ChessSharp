@@ -6,7 +6,8 @@ public class GameStatusTests
 {
     
     [Fact(DisplayName ="New Game Default Values")]
-    public void NewGameTest() {
+    public void NewGameTest()
+    {
         var game = new ChessGame();
         var expectedBoard = TestUtilities.DefaultBoard();
         Assert.Equal(expectedBoard, game.Board);
@@ -15,7 +16,8 @@ public class GameStatusTests
 
     
     [Fact(DisplayName ="Default Board No Statuses")]
-    public void NoGameStatusesTest() {
+    public void NoGameStatusesTest()
+    {
         var game = new ChessGame();
         game.Board = TestUtilities.DefaultBoard();
         game.Turn = TeamColor.WHITE;
@@ -31,7 +33,8 @@ public class GameStatusTests
 
     
     [Fact(DisplayName ="White in Check")]
-    public void WhiteCheckTest() {
+    public void WhiteCheckTest()
+    {
         var game = new ChessGame();
         game.Board =TestUtilities.LoadBoard("""
                 | | | | | | | |k|
@@ -51,7 +54,8 @@ public class GameStatusTests
 
     
     [Fact(DisplayName ="Black in Check")]
-    public void BlackCheckTest() {
+    public void BlackCheckTest()
+    {
         var game = new ChessGame();
         game.Board =TestUtilities.LoadBoard("""
                 | | | |K| | | | |
@@ -72,7 +76,8 @@ public class GameStatusTests
 
     
     [Fact(DisplayName ="White in Checkmate")]
-    public void WhiteTeamCheckmateTest() {
+    public void WhiteTeamCheckmateTest()
+    {
 
         var game = new ChessGame();
         game.Board =TestUtilities.LoadBoard("""
@@ -94,7 +99,8 @@ public class GameStatusTests
 
     
     [Fact(DisplayName ="Black in Checkmate by Pawns")]
-    public void BlackTeamPawnCheckmateTest() {
+    public void BlackTeamPawnCheckmateTest()
+    {
         var game = new ChessGame();
         game.Board =TestUtilities.LoadBoard("""
                 | | | |k| | | | |
@@ -115,7 +121,8 @@ public class GameStatusTests
 
     
     [Fact(DisplayName ="Black can escape Check by capturing")]
-    public void EscapeCheckByCapturingThreateningPieceTest() {
+    public void EscapeCheckByCapturingThreateningPieceTest()
+    {
 
         var game = new ChessGame();
         game.Board =TestUtilities.LoadBoard("""
@@ -137,7 +144,8 @@ public class GameStatusTests
 
     
     [Fact(DisplayName ="Black CANNOT escape Check by capturing")]
-    public void CannotEscapeCheckByCapturingThreateningPieceTest() {
+    public void CannotEscapeCheckByCapturingThreateningPieceTest()
+    {
 
         var game = new ChessGame();
         game.Board =TestUtilities.LoadBoard("""
@@ -159,7 +167,8 @@ public class GameStatusTests
 
     
     [Fact(DisplayName ="Checkmate, where blocking a threat reveals a new threat")]
-    public void CheckmateWhereBlockingThreateningPieceOpensNewThreatTest() {
+    public void CheckmateWhereBlockingThreateningPieceOpensNewThreatTest()
+    {
 
         var game = new ChessGame();
         game.Board =TestUtilities.LoadBoard("""
@@ -181,7 +190,8 @@ public class GameStatusTests
 
     
     [Fact(DisplayName ="Pinned King Causes Stalemate")]
-    public void StalemateTest() {
+    public void StalemateTest()
+    {
         var game = new ChessGame();
         game.Board =TestUtilities.LoadBoard("""
                 |k| | | | | | | |
@@ -201,7 +211,8 @@ public class GameStatusTests
 
     
     [Fact(DisplayName ="Stalemate Requires not in Check")]
-    public void CheckmateNotStalemateTest() {
+    public void CheckmateNotStalemateTest()
+    {
         var game = new ChessGame();
         game.Board =TestUtilities.LoadBoard("""
                 |k| | | | | | | |
