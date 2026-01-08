@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../../src/ChessSharp.Server/ChessSharp.Server.csproj" />
     <ProjectReference Include="..\..\src\ChessSharp.Client\ChessSharp.Client.csproj" />
   </ItemGroup>
 
