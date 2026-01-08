@@ -34,7 +34,8 @@ public class ChessGame
         List<ChessMove> valid = new List<ChessMove>();
         if(piece != null)
         {
-            valid.AddRange(new ChessMovesValidator(board).ValidMoves(startPosition));
+            ChessMovesValidator movesValidator = new ChessMovesValidator(board);
+            valid.AddRange(movesValidator.ValidMoves(startPosition));
         }
         return valid;
     }

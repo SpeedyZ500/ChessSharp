@@ -18,11 +18,12 @@ public class ChessMovesValidator
         {
             TeamColor color = piece.PieceColor;
             valid.AddRange(piece.PieceMoves(board, startPosition));
+            List<ChessMove> copy = valid.ToList();
             int row = startPosition.Row;
             int col = startPosition.Col;
             HashSet<ChessPosition> invalidDir = new HashSet<ChessPosition>();
             bool check = new ChessCheckCalculator(board).IsInCheck(color);
-            foreach(ChessMove move in valid)
+            foreach(ChessMove move in copy)
             {
                 ChessBoard copyBoard = new ChessBoard();
                 ChessPosition end = move.EndPosition;
