@@ -168,11 +168,11 @@ public class ChessBoard
         }
         if(promotion != null)
         {
-            board.Add(endPosition, new ChessPiece(thisPiece.PieceColor, (PieceType)promotion));
+            board[endPosition] = new ChessPiece(thisPiece.PieceColor, (PieceType)promotion);
         }
         else
         {
-            board.Add(endPosition, thisPiece);
+            board[endPosition] = thisPiece;
         }
         board.Remove(startPosition);
         lastMove = new ChessMove(startPosition, endPosition, promotion);
