@@ -1,0 +1,1 @@
+namespace ChessSharp.Shared.Tests.Chess;
