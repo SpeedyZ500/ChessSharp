@@ -3,18 +3,41 @@ namespace ChessSharp.Shared.Chess;
 using ChessSharp.Shared.Exceptions;
 using ChessSharp.Shared.Enums;
 using System;
+using System.Text.Json.Serialization;
 
 public class ChessBoard
 {
     private readonly HashSet<ChessPosition> history;
-    public HashSet<ChessPosition> History => history;
+    [JsonInclude]
+    private HashSet<ChessPosition> History
+    {
+        get{return history;}
+        init{history = value;}
+    }
     private ChessMove? lastMove = null;
-    public ChessMove? LastMove => lastMove;
+    public ChessMove? LastMove
+    {
+        get{return lastMove;}
+        init{lastMove = value;}
+    }
 
+    
 
     private readonly Dictionary<ChessPosition, ChessPiece> board;
 
+    [JsonInclude]
+    private Dictionary<ChessPosition, ChessPiece> Board
+    {
+        get{return board;}
+        init{board = value;}
+    }
 
+    public ChessBoard(HashSet<ChessPosition> history, ChessMove lastMove, Dictionary<ChessPosition, ChessPiece> board)
+    {
+        this.board = board;
+        this.history = history;
+        this.lastMove = lastMove;
+    }
     public ChessBoard() 
     {
         this.history = new HashSet<ChessPosition>();
@@ -25,6 +48,11 @@ public class ChessBoard
     {
         this.board = board;
         this.history = new HashSet<ChessPosition>();
+    }
+
+    public bool InHistory(ChessPosition position)
+    {
+        return history.Contains(position);
     }
     public bool Equals(ChessBoard? other)
     {

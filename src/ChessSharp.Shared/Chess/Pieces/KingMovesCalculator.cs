@@ -68,12 +68,11 @@ public class KingMovesCalculator : IChessMovesCalculator
                 {
                     continue;
                 }
-                HashSet<ChessPosition> history = board.History;
-                if (history.Contains(kingStart))
+                if (board.InHistory(kingStart))
                 {
                     break;
                 }
-                if (history.Contains(rookPosition))
+                if (board.InHistory(rookPosition))
                 {
                     continue;
                 }
